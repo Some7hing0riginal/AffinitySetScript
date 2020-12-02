@@ -27,3 +27,17 @@ Add debugMode to pause script upon completion:
 ```
 powershell -file AffinitySetScript.ps1 -processName notepad -affinity 12 -debugMode 1
 ```
+
+Use the set_affinity_to_1_audiodg.bat file sets the affinity of audiodg.exe to 1. This fixes some audio issues you might be having from a recent Windows Update.
+Just double click the file to run or run from the command prompt. Ensure both set_affinity_to_1_audiodg.bat and AffinitySetScript.ps1 are in the same directory.
+```
+cd "<directory of both files>"
+set_affinity_to_1_audiodg.bat
+```
+If you'd like to pause the script upon completion:
+```
+set_affinity_to_1_audiodg.bat -debugMode 1
+```
+
+Follow these instructions to run the .bat file automatically upon login:
+https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10
