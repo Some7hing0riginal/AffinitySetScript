@@ -2,14 +2,14 @@
 This Powershell script automatically identifies processes with a particular name and sets them to a specified affinity of your choosing
 
 
-# 1 (CPU 1) 
-# 2 (CPU 2) 
-# 4 (CPU 3) 
-# 8 (CPU 4) 
-# 16 (CPU 5) 
-# 32 (CPU 6) 
-# 64 (CPU 7) 
-# 128 (CPU 8)
+ 1 (CPU 1) 
+ 2 (CPU 2) 
+ 4 (CPU 3) 
+ 8 (CPU 4) 
+ 16 (CPU 5) 
+ 32 (CPU 6) 
+ 64 (CPU 7) 
+ 128 (CPU 8)
 
 Example:
 
