@@ -21,11 +21,11 @@ Affinity = 4 + 8 = 12 will use CPU 3 and CPU 4
 The following will limit all current notepad processes running to run on CPU 3 and 4 
 
 ```
-powershell -file AffinitySetScript.ps1 -processName notepad -affinity 12
+powershell -executionpolicy bypass -file AffinitySetScript.ps1 -processName notepad -affinity 12
 ```
 Add debugMode to pause script upon completion:
 ```
-powershell -file AffinitySetScript.ps1 -processName notepad -affinity 12 -debugMode 1
+powershell -executionpolicy bypass -file AffinitySetScript.ps1 -processName notepad -affinity 12 -debugMode 1
 ```
 
 Use the set_affinity_to_1_audiodg.bat file sets the affinity of audiodg.exe to 1. This fixes some audio issues you might be having from a recent Windows Update.
