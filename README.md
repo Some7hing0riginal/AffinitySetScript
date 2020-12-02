@@ -21,5 +21,9 @@ Affinity = 4 + 8 = 12 will use CPU 3 and CPU 4
 The following will limit all current notepad processes running to run on CPU 3 and 4 
 
 ```
-powershell -file set_affinity.ps1 -processName notepad -affinity 12
+powershell -file AffinitySetScript.ps1 -processName notepad -affinity 12
+```
+Add debugMode to pause script upon completion:
+```
+powershell -file AffinitySetScript.ps1 -processName notepad -affinity 12 -debugMode 1
 ```
