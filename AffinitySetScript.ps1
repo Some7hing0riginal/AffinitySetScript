@@ -5,7 +5,7 @@ param(
     [switch]$Elevated,
     [Parameter(Mandatory=$true)][string]$processName,
     [Parameter(Mandatory=$true)][int]$affinity,
-    [switch]$debugFlag
+    [int]$debugMode=0
 )
 
 function Test-Admin {
@@ -22,12 +22,12 @@ if ((Test-Admin) -eq $false)  {
         'tried to elevate to full privileges, did not work, aborting'
     } else {
         'running my self again with full privileges'
-        Start-Process powershell.exe -Verb RunAs -ArgumentList ('-executionpolicy bypass -noprofile -file "{0}" -elevated {1} {2} {3}' -f ($myinvocation.MyCommand.Definition), $processName, $affinity, $stringArgs)
+        Start-Process powershell.exe -Verb RunAs -ArgumentList ('-executionpolicy bypass -noprofile -file "{0}" -elevated {1} {2} {3} {4}' -f ($myinvocation.MyCommand.Definition), $processName, $affinity, $debugMode, $stringArgs)
     }
     exit
 }
 'running with full privileges'
-#$debugFlag = 1
+#$debugMode = 1
 
 # set affinity of all processes to CPU 3 and CPU 4
 # it prints processes that it was unable to set affinity of    
@@ -61,9 +61,9 @@ foreach ($process in $allProcesses) {
     }
 }
 
-#if ($debugFlag) {
+if ($debugMode) {
     Write-Host -NoNewLine 'Press any key to continue...';
     $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
-#}
+}
 
 # Help from https://stackoverflow.com/a/35183987
