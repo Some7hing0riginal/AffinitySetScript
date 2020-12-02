@@ -27,7 +27,7 @@ if ((Test-Admin) -eq $false)  {
     exit
 }
 'running with full privileges'
-
+#$debugFlag = 1
 
 # set affinity of all processes to CPU 3 and CPU 4
 # it prints processes that it was unable to set affinity of    
@@ -43,8 +43,7 @@ if ((Test-Admin) -eq $false)  {
 # 128 (CPU 8)
 
 #$affinity = 4 + 8
-'setting all processes to affinity: '+$affinity
-'processes unable to set affinity of: '
+'setting all processes of ' + $processName + ' to affinity: '+$affinity
 
 $allProcesses = Get-Process $processName 
 foreach ($process in $allProcesses) { 
@@ -57,6 +56,7 @@ foreach ($process in $allProcesses) {
 
     }
     catch {
+        'processes unable to set affinity of: '
         $process
     }
 }
